@@ -1,28 +1,18 @@
-pipeline
-{
-any agent
-stages
-{
-stage('Build')
-{
-steps
-{
-echo 'Built successfully'
-}
-}
-stage('Test')
-{
-steps
-{
-echo 'Tested successfully'
-}
-}
-stage('Deploy')
-{
-steps
-{
-echo 'make publish'
-}
-}
-}
+pipeline {
+    agent any
+
+    stages {
+        stage('Build Assets') {
+            agent any
+            steps {
+                echo 'Building Assets...'
+            }
+        }
+        stage('Test') {
+            agent any
+            steps {
+                echo 'Testing stuff...'
+            }
+        }
+    }
 }
